@@ -1,11 +1,10 @@
 //created variables that are needed for game
 var wins = 0;
 var losses = 0;
+var guessesLeft = 10;
 
 //created alphabet array for letter choices
-// var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var computerChoice = "abcdefghijklmnopqrstuvwxyz";
-
 
 //create variables that are to be used from the HTMl doc
 var userInputText = document.getElementById("userinput-text");
@@ -17,27 +16,32 @@ var guessesText = document.getElementById("guesses-text");
 // key press input 
 document.onkeyup = function (event) {
 
-    // Computer has a random choide prior to the user's input
-    var computerInput = computerInput[Math.floor(Math.random() * computerChoice.length)];
+     // which key was pressed is listed here
+     var userInput = event.key;
+
+    // Computer has a random choice prior to the user's input
+    var computerInput = computerChoice[Math.floor(Math.random() * computerChoice.length)];
     console.log(computerInput)
-    // which key was pressed is listed here
-    var userInput = event.key;
+   
+  // loop through the array to see if user guess is correect
+  for (var i = 0; i < computerChoice.length; i++)   {
+      if (userInput == computerChoice)
+      wins ++;
+    else {
+        losses++;
+
+    }
+  }
+
+    // Display the user's guesses left, wins/losses.
+  
+    // document.getElementById("wins-text").innerHTML = "Wins: " + wins;
+    // document.getElementById("losses-text").innerHTML = "Losses: " + losses;
+    // document.getElementById("triesMax-text").innerHTML = "Guesses Left: " + guessesLeft;
 
 
-
-    // if (i = 0; i < 10; i++) {
-    //     if (userInput == computerInput)
-    //     wins++;
-    //     break;
-    //     } else {
-    //     losses++;
-    // }
 };
 
-// print out the number of wins, losses, and number of guesses
-// document.write("Wins: " + wins);
-// document.write("Losses: " + losses);
-// document.write("Your Guesses so far: ");
 
 
 
