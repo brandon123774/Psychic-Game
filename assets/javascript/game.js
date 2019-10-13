@@ -23,13 +23,14 @@ document.onkeyup = function (event) {
     var computerInput = computerChoice[Math.floor(Math.random() * computerChoice.length)];
     console.log(computerInput)
    
-  // loop through the array to see if user guess is correect
+  // loop through the array to see if user guess is correct
   for (var i = 0; i < computerChoice.length; i++)   {
       if (userInput == computerChoice)
       wins ++;
-    else {
+      guessesLeft--;
+     } 
+     else {
         losses++;
-
     }
   }
 
