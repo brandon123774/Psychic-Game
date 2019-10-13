@@ -3,7 +3,8 @@ var wins = 0;
 var losses = 0;
 
 //created alphabet array for letter choices
-var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+// var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var computerChoice = "abcdefghijklmnopqrstuvwxyz";
 
 //print out main statement
 document.write("Guess what letter I'm thinking of");
@@ -18,12 +19,19 @@ var guessesText = document.getElementById("guesses-text");
 // key press input 
 document.onkeyup = function (event) {
 
+// Computer has a random choide prior to the user's input
+var computerInput = computerInput[Math.floor(Math.random() * computerChoice.length)];
+console.log(computerInput)
+// which key was pressed is listed here
+var userInput = event.key;
+
+
 }
 
 // print out the number of wins, losses, and number of guesses
-document.write("Wins: " + wins);
-document.write("Losses: " + losses);
-document.write("Your Guesses so far: ");
+// document.write("Wins: " + wins);
+// document.write("Losses: " + losses);
+// document.write("Your Guesses so far: ");
 
 
 
